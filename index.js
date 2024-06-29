@@ -94,12 +94,35 @@ const htmlModalCOntents=({id,title,type,description,url})=>{
     </div> ` 
 };
 
-
+// Convert JSON format into string  for local storage
 const updateLocalStorage = ()=>{
     localStorage.setItem(
-        "tasky",
+        "task",
         JSON.stringify({
             tasks:state.taskList,
         })
     )
+};
+// Load Initial Data
+// Converting sring into JSON format for local storage for rendering  the card of the screen
+const loadInitalData = ()=>{
+    const localStorageCopy =JSON.parse(localStorage.tasks);
+    if(localStorageCopy) state.taskList = localStorageCopy.tasks;
+    state.taskList.map((cardDate)=>{
+        taskContents.innerAdjacentHTML("beforeend",htmlTaskCOntents(cardDate));
+    });
+};
+
+const handleSubmit = (event)=>{
+    const id=`${Date.now()}`;
+    const input = {
+        url: document.getElementById("imageUrl").value,
+        title: document.getElementById("taskTitle").value,
+        tags: document.getElementById("tags").value,
+        taskDescription: document.getElementById("taskDescription").value,
+
+    };
+    taskContents.innerAdjacentHTML("beforeend",htmlTaskCOntents({...input,id}));
+    state.taskList.push({...input,id});
+    updateLocalStorage();
 };
