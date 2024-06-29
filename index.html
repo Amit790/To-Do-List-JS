@@ -22,9 +22,17 @@
 
 </head>
 <body>
+    <!-- replace data-bs-target="#showTask" -->
+     <button type="button" 
+             class="btn btn-primary" 
+             data-bs-toggle="modal" 
+             data-bs-target="#showTask">
+     Launch demo modal
+    </button>
+
    <!-- btn on small screen size -->
-        <div class="add__new__btn__mobile__only d-xxl-none">
-            <button class="btn btn-outline-primary 
+    <div class="add__new__btn__mobile__only d-xxl-none">
+        <button class="btn btn-outline-primary 
                   d-flex 
                   align-item-center 
                   gap-4 "
@@ -32,9 +40,9 @@
                   data-bs-toggle="modal" 
                   data-bs-target="#addNewModal"> 
 
-                    <i class="fa-light fa-plus mr-4">Add New Item</i>
-            </button> 
-        </div>
+                <i class="fa-light fa-plus mr-4">Add New Item</i>
+        </button> 
+    </div>
 
     <!--Add New Item Modal -->
     <div class="modal fade" 
@@ -112,17 +120,11 @@
         </div>
     </div>
 
-     <!-- Button remove later -->
-     <button type="button" 
-             class="btn btn-primary" 
-             data-bs-toggle="modal" 
-             data-bs-target="#exampleModal">
-     Launch demo modal
-    </button>
+     
 
     <!-- Open Task Modal -->
     <div class="modal fade" 
-         id="exampleModal" 
+         id="showTask" 
          tabindex="-1" 
          aria-labelledby="exampleModalLabel" 
          aria-hidden="true">
