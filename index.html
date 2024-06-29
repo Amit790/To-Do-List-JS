@@ -31,7 +31,7 @@
     </button> -->
 
    <!-- btn on small screen size -->
-    <div class="add__new__btn__mobile__only d-xxl-none">
+    <div class="add__new__btn__mobile__only d-md-none">
         <button class="btn btn-outline-primary 
                   d-flex 
                   align-item-center 
@@ -60,7 +60,7 @@
                 </div>
                 <div class="modal-body">
                             <!-- Form -->
-                            <form>
+                            <form onsubmit="return false">
                                 <!-- Image URL -->
                                 <div class="mb-3">
                                     <label for="imageUrl" class="form-label">Image URL</label>
@@ -88,13 +88,13 @@
 
                                 <!-- Task Type -->
                                 <div class="mb-3">
-                                    <label for="taskType" class="form-label">Task Type</label>
+                                    <label for="tags" class="form-label">Task Type</label>
                                     
                                     <input type="text"
                                         class="form-control" 
-                                        id="taskType" 
+                                        id="tags" 
                                         aria-describedby="taskTy" >
-                                    </input>
+                                    
                                 </div>
 
                                 <!-- Task Description -->
@@ -102,9 +102,9 @@
                                     <label for="taskDescription" class="form-label">Task Description</label>
                                     
                                     <textarea type="text"
-                                        class="form-control" 
-                                        id="taskDescription" 
-                                        aria-describedby="taskDetail" required>
+                                              class="form-control" 
+                                              id="taskDescription" 
+                                              aria-describedby="taskDetail" >
                                     </textarea>
                                 </div>
                             </form>        
@@ -114,7 +114,10 @@
                     <button type="button" 
                             class="btn btn-secondary" 
                             data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary" onclick="handleSubmit()">Save changes</button>
+
+                    <button type="submit" 
+                            class="btn btn-primary" 
+                            onclick="handleSubmit()">Save changes</button>
                 </div>
             </div>
         </div>
@@ -126,13 +129,13 @@
     <div class="modal fade" 
          id="showTask" 
          tabindex="-1" 
-         aria-labelledby="exampleModalLabel" 
+         aria-labelledby="showTaskLabel" 
          aria-hidden="true">
 
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Task Details...</h1>
+                    <h1 class="modal-title fs-5" id="showTaskLabel">Task Details...</h1>
 
                     <button type="button" 
                             class="btn-close" 
@@ -145,7 +148,9 @@
                 ...
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" 
+                            class="btn btn-secondary" 
+                            data-bs-dismiss="modal">Close</button>
                     
                 </div>
             </div>
@@ -227,7 +232,9 @@
         
         <!-- Card section -->
         <section class="mt-3">
-            <div class="row task__contents"></div>
+            <div class="row task__contents">
+                <h5>The place where we can see our card tasks on the screen </h5>
+            </div>
         </section>
     </div>
 
